@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<style>
+			#link_to_new_page {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<select id="select-value">
+			<option>All values</option>
+			<option>xxx</option>
+			<option>aaa</option>
+			<option>ddd</option>
+			<option>fff</option>
+			<option>ggg</option>
+		</select>
+		<a id="link_to_new_page" href="">Download link</a>
+
+		<script type="text/javascript">
+			var link = "/new_page/"
+			$(document).ready(function() {
+				$('#select-value').on('change', function() {
+					if (this.value == 'All values') {
+						$('#link_to_new_page').hide().css("display", "hidden");
+						$("#link_to_new_page").attr("href", "")
+					} else {
+						$('#link_to_new_page').show().css("display", "inline");
+						$("#link_to_new_page").attr("href", link + "?value=" + this.value)
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
